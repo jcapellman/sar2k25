@@ -3,7 +3,6 @@
 
 enum PlayType {
 	REBOUND,
-	ASSIST,
 	FIELDGOAL_MADE,
 	FIELDGOAL_MISS,
 	THREEPOINT_MADE,
@@ -22,7 +21,6 @@ public:
 private:
 	int rebounds;
 	int blocks;
-	int assists;
 	int fieldgoal_attempts;
 	int fieldgoal_made;
 	int threepoint_attempts;

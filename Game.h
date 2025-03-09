@@ -4,7 +4,8 @@
 
 class Game {
 public:
-	Game(Player argPlayer1, Player argPlayer2);
+	Game(Player argPlayer1, Player argPlayer2) : player1(argPlayer1), player2(argPlayer2) {
+	}
 
 	void Play();
 
