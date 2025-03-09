@@ -20,15 +20,15 @@ struct PlayerAttributes {
 
 class Player {
 public:
-	Player(std::string argName, const PlayerAttributes& attr)
-		: name(argName), attributes(attr), gameStats() {
+	Player(const std::string& name, const std::string& team, const PlayerAttributes& attributes)
+		: name(name), team(team), attributes(attributes) {
 	}
 
 	void AttemptPlay(AvailablePlays play, Player& opponent);
 
-	const std::string& Name() const {
-		return name;
-	}
+	const std::string& GetName() const { return name; }
+
+	const std::string& GetTeam() const { return team; }
 
 	const PlayerAttributes& GetAttributes() const {
 		return attributes;
@@ -43,6 +43,7 @@ public:
 	}
 private:
 	std::string name;
+	std::string team;
 
 	PlayerAttributes attributes;
 

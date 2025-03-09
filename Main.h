@@ -1,6 +1,9 @@
 #pragma once
-#include <string>
+#include <fstream>
+#include <sstream>
 #include <iostream>
+#include <vector>
+#include <string>
 #include <random>
 
 #include <cstdlib>
