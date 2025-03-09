@@ -22,7 +22,7 @@ static void PlayGame() {
     // TODO: Randomly select a computer player
 
     auto humanPlayer = Player("33", 1, 3, 8, 10, 7);
-    auto aiPlayer = Player("23", 7, 5, 9, 6, 8);
+    auto aiPlayer = Player("23", 7, 5, 7, 6, 8);
 
     auto currentGame = Game(humanPlayer, aiPlayer);
 

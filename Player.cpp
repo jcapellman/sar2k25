@@ -1,36 +1,21 @@
 #include "Player.h"
 
 void Player::AttemptPlay(AvailablePlays play, Player opponent) {
-	int bonus = 0;
-	int result = 0;
+	auto calculateOutcome = [this](int baseValue, int opponentValue, int successThreshold, PlayType madeType, PlayType missType) -> PlayType {
+		int bonus = baseValue - opponentValue;
+		int result = generateRandomRange(0 + bonus, 10);
+
+		return (result > successThreshold) ? madeType : missType;
+	};
+
 	PlayType playType = FIELDGOAL_MADE;
 
 	switch (play) {
 		case OFFENSE_FIELDGOAL:
-			bonus = fieldgoal - opponent.Steal();
-
-			result = generateRandomRange(0 + bonus, 10);
-
-			if (result > 6) {
-				playType = FIELDGOAL_MADE;	
-			}
-			else {
-				playType = FIELDGOAL_MISS;
-			}
-
+			playType = calculateOutcome(fieldgoal, opponent.Steal(), DEFAULT_FIELD_GOAL_THRESHOLD, FIELDGOAL_MADE, FIELDGOAL_MISS);
 			break;
 		case OFFENSE_THREE_POINT_FIELDGOAL:
-			bonus = threepoint - opponent.Block();
-
-			result = generateRandomRange(0 + bonus, 10);
-
-			if (result > 3) {
-				playType = THREEPOINT_MADE;
-			}
-			else {
-				playType = THREEPOINT_MISS;
-			}
-
+			playType = calculateOutcome(threepoint, opponent.Block(), DEFAULT_THREE_POINT_FIELD_GOAL_THRESHOLD, THREEPOINT_MADE, THREEPOINT_MISS);
 			break;
 	}
 
