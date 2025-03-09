@@ -22,6 +22,7 @@ public:
 private:
 	int rebounds;
 	int blocks;
+	int steals;
 	int fieldgoal_attempts;
 	int fieldgoal_made;
 	int threepoint_attempts;

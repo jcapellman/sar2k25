@@ -16,3 +16,11 @@ constexpr auto DEFAULT_THREE_POINT_FIELD_GOAL_THRESHOLD = 10;
 constexpr auto DEFAULT_CONTESTED_RIM = 0;
 
 constexpr auto PLAYER_DATABASE = "players.txt";
+
+inline void ClearScreen() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}

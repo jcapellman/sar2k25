@@ -11,6 +11,8 @@ public:
 
 	void ShowResults();
 private:
+	void SimulateComputerPlayerAction();
+
 	Player player1;
 	Player player2;
 };

@@ -2,6 +2,7 @@
 
 GameStats::GameStats() {
 	blocks = 0;
+	steals = 0;
 	fieldgoal_attempts = 0;
 	fieldgoal_made = 0;
 	rebounds = 0;
@@ -14,25 +15,16 @@ int GameStats::TotalPoints() const {
 }
 
 void GameStats::Print() const {
-	std::cout << "Field Goals Made:" << fieldgoal_made << std::endl;
-	std::cout << "Field Goals Attempt:" << fieldgoal_attempts << std::endl;
+	auto printStat = [](int made, int attempts) {
+        if (attempts > 0) {
+			return std::round((static_cast<float>(made) / attempts) * 100);
+        }
+		return 0.0f;
+	};
 
-	if (fieldgoal_attempts > 0) {
-		std::cout << "Field Goal %:" << fieldgoal_made / fieldgoal_attempts << std::endl;
-	}
-	else {
-		std::cout << "Field Goal %: N/A" << std::endl;
-	}
-
-	std::cout << "Three Point Field Goals Made:" << threepoint_made << std::endl;
-	std::cout << "Three Point Field Goals Attempt:" << threepoint_attempts << std::endl;
-
-	if (threepoint_attempts > 0) {
-		std::cout << "Three Point Field Goal %:" << threepoint_made / threepoint_attempts << std::endl;
-	}
-	else {
-		std::cout << "Three Point Field Goal %: N/A" << std::endl;
-	}
+	std::cout << "FGM\tFGA\tFG%\t3PM\t3PA\t3P%\tREB\tSTL\tBLK\tPTS" << std::endl;
+	std::cout << fieldgoal_made << "\t" << fieldgoal_attempts << "\t" << printStat(fieldgoal_made, fieldgoal_attempts) << "\t" << threepoint_made << "\t" << threepoint_attempts << "\t" << printStat(threepoint_made, threepoint_attempts) << "\t"
+		<< rebounds << "\t" << steals << "\t" << blocks << "\t" << TotalPoints() << std::endl;
 }
 
 void GameStats::RecordPlay(PlayOutcome outcome) {

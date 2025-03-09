@@ -30,13 +30,9 @@ public:
 
 	const std::string& GetTeam() const { return team; }
 
-	const PlayerAttributes& GetAttributes() const {
-		return attributes;
-	}
+	const PlayerAttributes& GetAttributes() const { return attributes; }
 
-	const GameStats& GetGameStats() const {
-		return gameStats;
-	}
+	const GameStats& GetGameStats() const { return gameStats; }
 
 	void RecordPlay(PlayOutcome outcome) {
 		gameStats.RecordPlay(outcome);
