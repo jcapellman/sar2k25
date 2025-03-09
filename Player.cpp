@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "RandomNumberGenerator.h"
+#include "GameStats.h"
 
 void Player::AttemptPlay(AvailablePlays play, Player& opponent) {
     auto rollCheck = [](int playerAttribute, int opponentAttribute) -> int {
@@ -59,5 +60,5 @@ void Player::AttemptPlay(AvailablePlays play, Player& opponent) {
 
     gameStats.RecordPlay(outcome);
 
-    std::cout << name << " attempted a play: " << outcome << std::endl;
+    std::cout << name << " attempted a play: " << ToString(outcome) << std::endl;
 }
