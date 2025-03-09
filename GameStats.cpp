@@ -35,10 +35,13 @@ void GameStats::Print() const {
 	}
 }
 
-void GameStats::RecordPlay(PlayType playType) {
-	switch (playType) {
+void GameStats::RecordPlay(PlayOutcome outcome) {
+	switch (outcome) {
 		case REBOUND:
 			rebounds++;
+			break;
+		case BLOCKED_SHOT:
+			blocks++;
 			break;
 		case FIELDGOAL_MADE:
 			fieldgoal_attempts++;

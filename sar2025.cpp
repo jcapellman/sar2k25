@@ -21,8 +21,12 @@ static void PlayGame() {
 
     // TODO: Randomly select a computer player
 
-    auto humanPlayer = Player("33", 1, 3, 8, 10, 7);
-    auto aiPlayer = Player("23", 7, 5, 7, 6, 8);
+    PlayerAttributes bronnyAttributes = { 10, 9, 8, 7, 10 };
+    Player aiPlayer("LeBronny Jeans", bronnyAttributes);
+
+    PlayerAttributes ramenAttributes = { 6, 5, 10, 10, 8 };
+    Player humanPlayer("Steve Ramen", ramenAttributes);
+
 
     auto currentGame = Game(humanPlayer, aiPlayer);
 

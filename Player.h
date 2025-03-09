@@ -10,62 +10,41 @@ enum AvailablePlays {
 	DEFENSE_BLOCK
 };
 
+struct PlayerAttributes {
+	int block;      // Defensive ability
+	int steal;      // Stealing ability
+	int fieldgoal;  // Accuracy for field goals
+	int threepoint; // Accuracy for three-pointers
+	int clutch;     // Performance under pressure
+};
+
 class Player {
 public:
-	Player(std::string argName, int argBlock, int argSteal, int argFieldGoal, int argThreePoint, int argClutch)
-		: name(argName), block(argBlock), steal(argSteal), fieldgoal(argFieldGoal), threepoint(argThreePoint), clutch(argClutch), gameStats() {
+	Player(std::string argName, const PlayerAttributes& attr)
+		: name(argName), attributes(attr), gameStats() {
 	}
 
-	void AttemptPlay(AvailablePlays play, Player opponent);
+	void AttemptPlay(AvailablePlays play, Player& opponent);
 
 	const std::string& Name() const {
 		return name;
 	}
 
-	const int& Block() const {
-		return block;
-	}
-
-	const int& Steal() const {
-		return steal;
-	}
-
-	const int& FieldGoal() const {
-		return fieldgoal;
-	}
-
-	const int& ThreePoint() const {
-		return threepoint;
-	}
-
-	const int& Clutch() const {
-		return clutch;
+	const PlayerAttributes& GetAttributes() const {
+		return attributes;
 	}
 
 	const GameStats& GetGameStats() const {
 		return gameStats;
 	}
+
+	void RecordPlay(PlayOutcome outcome) {
+		gameStats.RecordPlay(outcome);
+	}
 private:
 	std::string name;
 
-	int block;
-
-	int steal;
-
-	int fieldgoal;
-
-	int threepoint;
-
-	int clutch;
+	PlayerAttributes attributes;
 
 	GameStats gameStats;
-
-	int generateRandomRange(int start, int end) {
-		std::random_device rd;
-		std::mt19937 gen(rd());
-
-		std::uniform_int_distribution<> distrib(start, end);
-
-		return distrib(gen);
-	}
 };

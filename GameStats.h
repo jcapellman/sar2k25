@@ -1,8 +1,9 @@
 #pragma once
 #include "Main.h"
 
-enum PlayType {
+enum PlayOutcome {
 	REBOUND,
+	BLOCKED_SHOT,
 	FIELDGOAL_MADE,
 	FIELDGOAL_MISS,
 	THREEPOINT_MADE,
@@ -13,7 +14,7 @@ class GameStats {
 public:
 	GameStats();
 
-	void RecordPlay(PlayType playType);
+	void RecordPlay(PlayOutcome playType);
 
 	void Print() const;
 
