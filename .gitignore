@@ -1,2 +1,9 @@
 *.filters
 *.user
+sar2025/*
+/x64/*
+*.tmp
+*.log
+*.tlog
+.vs/*
+.vs/*/v17/*

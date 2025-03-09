@@ -130,11 +130,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameStats.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="sar2025.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameStats.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
